@@ -6,7 +6,7 @@
 /*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 15:47:32 by mkwizera          #+#    #+#             */
-/*   Updated: 2024/07/20 15:52:24 by mkwizera         ###   ########.fr       */
+/*   Updated: 2024/07/20 21:52:44 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 
 typedef struct t_stack_node
 {
-	int					nbr;
-	// int above_median;
-	// int index;
-	// int push_cost;
-	// int index;
-	struct t_stack_node	*target_node;
-	struct t_stack_node	*next;
-	struct t_stack_node	*prev;
+	int						nbr;
+	bool					above_median;
+	int						index;
+	int						push_cost;
+	bool					cheapest;
+	struct t_stack_node		*target_node;
+	struct t_stack_node		*next;
+	struct t_stack_node		*prev;
 }	node;
 
 //overall functions
