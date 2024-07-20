@@ -6,7 +6,7 @@
 /*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 15:58:47 by mkwizera          #+#    #+#             */
-/*   Updated: 2024/07/20 16:50:20 by mkwizera         ###   ########.fr       */
+/*   Updated: 2024/07/20 18:12:36 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ double	find_median(node **stack) // using the turtoise and hare algorithm
 		prev_slow = slow;
 		slow = slow->next;
 	}
-
 	if (fast != NULL)
 	{
 		return (slow->nbr);
