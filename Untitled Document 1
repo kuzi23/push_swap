@@ -1,0 +1,56 @@
+function current_index(stack)
+    node = stack
+    index = 0
+    while node is not null
+        node.index = index
+        index = index + 1
+        node = node.next
+end function
+
+
+function set_target_a(a, b)
+    // Iterate through each node in stack a
+    node_a = a
+    while node_a is not null
+        best_match = null
+        best_match_lowest = LONG_MIN // Initialize to the lowest possible value
+        node_b = b
+        while node_b is not null
+            if best_match is null or some_condition(node_a, node_b, best_match)
+                best_match = node_b
+                best_match_lowest = node_b.nbr // Update best_match_lowest with the matched node's value
+            node_b = node_b.next
+        // Check if no suitable match was found
+        if best_match_lowest == LONG_MIN
+            // If no match, find and assign the highest node in stack b
+            node_a.target_node = find_highest(b)
+        else
+            // Assign the best match found to node_a's target_node
+            node_a.target_node = best_match
+        node_a = node_a.next
+end function
+
+
+function cost_analysis_a(a, b)
+    node_a = a
+    while node_a is not null
+        if node_a.target_node is not null
+            node_a.push_cost = calculate_cost(node_a, node_a.target_node)
+        node_a = node_a.next
+end function
+
+function calculate_cost(node_a, target_node)
+    // Implement the logic to calculate the cost
+    return cost
+
+function set_cheapest(a)
+    cheapest_node = null
+    node_a = a
+    while node_a is not null
+        if cheapest_node is null or node_a.push_cost < cheapest_node.push_cost
+            cheapest_node = node_a
+        node_a = node_a.next
+    // Optionally, mark the cheapest node or perform an action with it
+    // For example, set some property or print its value
+end function
+

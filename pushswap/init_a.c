@@ -6,20 +6,11 @@
 /*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 19:33:39 by mkwizera          #+#    #+#             */
-/*   Updated: 2024/07/20 21:56:00 by mkwizera         ###   ########.fr       */
+/*   Updated: 2024/07/21 14:03:32 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	inti_nodes_a(node *a, node *b)
-{
-	current_index(a);
-	current_index(b);
-	set_target_a(a, b);
-	cost_analysis_a(a, b);
-	set_cheapest(a);
-}
 
 void	current_index(node *stack)
 {
@@ -84,9 +75,30 @@ void	cost_analysis_a(node *a, node *b)
 	}
 }
 
-void	set_cheapest(node *stack)
+void	set_cheapest(node *stack) // tommorrow i will finish this well
 {
 	node	*current_a;
+	long	cheapest_value;
 
-	
+	if (!stack)
+		return ;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_value)
+		{
+			cheapest_value = stack->push_cost;
+			current_a = stack;
+		}
+		stack = stack->next;
+	}
+	current_a->cheapest = true;
+}
+
+void	inti_nodes_a(node *a, node *b)
+{
+	current_index(a);
+	current_index(b);
+	set_target_a(a, b);
+	cost_analysis_a(a, b);
+	set_cheapest(a);
 }
