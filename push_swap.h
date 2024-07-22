@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kuzi <kuzi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 15:47:32 by mkwizera          #+#    #+#             */
-/*   Updated: 2024/07/20 21:52:44 by mkwizera         ###   ########.fr       */
+/*   Updated: 2024/07/22 20:02:20 by kuzi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void		sort_three(node **stack);
 int			stack_len(node *stack);
 bool		stack_sorted(node *stack);
 void		bubble_sort(node **stack);
+
+// second algorithm
+void		current_index(node *stack);
+void		set_target(node *a, node *b);
+void		cost_analysis_a(node *a, node *b);
+void		set_cheapest(node *stack);
+void	inti_nodes_a(node *a, node *b);
 
 //role
 void		rra(node **a, bool print);
