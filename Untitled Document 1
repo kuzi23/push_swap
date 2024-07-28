@@ -1,0 +1,44 @@
+Function rotate_both(a, b, cheapest_node):
+    While the top of stack 'b' is not the target_node of cheapest_node 
+          AND the top of stack 'a' is not cheapest_node:
+        Perform simultaneous rotate operation (rr) on stacks 'a' and 'b'
+    Update current indices of stack 'a'
+    Update current indices of stack 'b'
+
+Function rev_rotate_both(a, b, cheapest_node):
+    While the top of stack 'b' is not the target_node of cheapest_node 
+          AND the top of stack 'a' is not cheapest_node:
+        Perform simultaneous reverse rotate operation (rrr) on stacks 'a' and 'b'
+    Update current indices of stack 'a'
+    Update current indices of stack 'b'
+
+Function prep_for_push(stack, top_node, stack_name):
+    While the top of the stack is not top_node:
+        If stack_name is 'a':
+            If top_node is above median:
+                Perform rotate operation (ra) on stack 'a'
+            Else:
+                Perform reverse rotate operation (rra) on stack 'a'
+        Else if stack_name is 'b':
+            If top_node is above median:
+                Perform rotate operation (rb) on stack 'b'
+            Else:
+                Perform reverse rotate operation (rrb) on stack 'b'
+
+Function move_a_to_b(a, b):
+    cheapest_node = get the cheapest node in stack 'a'
+    
+    If cheapest_node is above median AND its target_node is above median:
+        Call rotate_both(a, b, cheapest_node)
+    Else if cheapest_node is NOT above median AND its target_node is NOT above median:
+        Call rev_rotate_both(a, b, cheapest_node)
+    
+    Call prep_for_push(a, cheapest_node, 'a')
+    Call prep_for_push(b, cheapest_node's target_node, 'b')
+    
+    Perform push operation (pb) from stack 'a' to stack 'b'
+
+Function move_b_to_a(a, b):
+    Call prep_for_push(a, top_node of stack 'b', 'a')
+    Perform push operation (pa) from stack 'b' to stack 'a'
+
