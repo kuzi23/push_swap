@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#              #
-#    Updated: 2025/01/14 15:15:57 by marvin           ###   ########.fr        #
+#    Updated: 2025/01/14 20:05:20 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,23 +21,20 @@ RM = rm -f
 
 # Source files
 SRCS = handlers.c \
-       nodes_a.c \
-       nodes_b.c \
+       inititation_utils.c \
        intial_condition_utils.c \
        main.c \
+       node_a.c \
+       node_b.c \
        push_swap.c \
        push.c \
        reverse_rotation.c \
        rotate.c \
-       stack_sorting.c \
-       stack_init_utilis.c \
+       sorted_three.c \
        stack_init.c \
-       swap.c \
-       sorted_three.c
+       stack_sorting.c \
+       swapping.c \
 
-
-
-# Compiler and flags
 
 # Default target
 all: $(NAME)
