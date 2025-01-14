@@ -1,51 +1,68 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#              #
+#    Updated: 2025/01/14 15:15:57 by marvin           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#compiler and flags
+# resources
+INC = -Iinc
+INCLUDELIBFT = -Ilibft
+OBJ = $(SRCS:%.c=%.o)
+NAME = push_swap
 CC = gcc
-CFLAGS  =-Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-#sources
-SRCS =	init_stack_a/ft_strol.c \
-		init_stack_a/init_stack_a.c \
-		role/push_to_dest.c \
-		role/reverseRotate.c \
-		role/rotate.c \
-		role/swap.c \
-		pushswap/init_a.c \
-		pushswap/init_b.c \
-		pushswap/move_a_to_b.c \
-		sort_stacks/push_swap.c \
-		sort_stacks/sort_stacks.c \
-		sort_three/sort_three.c \
-		stack_sorted/stack_sorted.c \
-		stack_sorted/stack_len.c\
-		libft/ft_split2.c \
-		libft/ft_strlen.c \
-		main.c \
+# Source files
+SRCS = handlers.c \
+       nodes_a.c \
+       nodes_b.c \
+       intial_condition_utils.c \
+       main.c \
+       push_swap.c \
+       push.c \
+       reverse_rotation.c \
+       rotate.c \
+       stack_sorting.c \
+       stack_init_utilis.c \
+       stack_init.c \
+       swap.c \
+       sorted_three.c
 
-#object files
-OBJ = $(SRCS:%.c=%.o)
 
-#Executable name
-NAME = push_swap
 
-#default target
+# Compiler and flags
+
+# Default target
 all: $(NAME)
 
-#Rule for building object files
-%.o:%.c
-		@echo "compiling all"
-		$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	@echo "Compiling $< with includes: $(INC) $(INCLUDELIBFT)"
+	$(CC) $(CFLAGS) $(INC) $(INCLUDELIBFT) -c $< -o $@
 
-#Rule for building the executable
 $(NAME): $(OBJ) libft
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(INC) $(INCLUDELIBFT) -o $(NAME) $(OBJ) -Llibft -lft
 
-#clean object files
+libft:
+	make -C libft
+
 clean:
-		$(RM) $(OBJ)
+	make clean -C libft
+	$(RM) $(OBJ)
 
 fclean: clean
-		$(RM) $(NAME)
+	make fclean -C libft
+	$(RM) $(NAME)
 
 re: fclean all
+
+# Phony targets
+.PHONY: all clean fclean re libft
+
+

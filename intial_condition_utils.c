@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   intial_condition_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#             */
-/*   Updated: 2025/01/13 20:48:13 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/14 15:11:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	intial(char **argv, int argc, t_stack_node **a)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	char	**modified_argv;
 
-	a = NULL;
-	b = NULL;
-	intial(argv, argc, &a);
-	if (!sorted_stack(a))
+	modified_argv = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		free_errors(NULL, NULL, 0);
+	else if (argc == 2)
 	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			three_list_sort(&a);
-		else
-			push_swap(&a, &b);
+		modified_argv = ft_split(argv[1], ' ');
+		if (!modified_argv)
+			return (1);
 	}
-	free_stack(&a);
-	return (0);
+	if (argc == 2)
+		init_stack_a(a, modified_argv, argc);
+	else
+		init_stack_a(a, argv + 1, argc);
+	if (argc == 2)
+		free_split(modified_argv);
+	return (1);
 }

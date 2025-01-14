@@ -1,34 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#             */
-/*   Updated: 2025/01/13 20:48:13 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/13 20:49:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	push(t_stack_node **dest, t_stack_node **src)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	t_stack_node	*node_we_push;
 
-	a = NULL;
-	b = NULL;
-	intial(argv, argc, &a);
-	if (!sorted_stack(a))
+	if (!*src)
+		return ;
+	node_we_push = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	node_we_push -> prev = NULL;
+	if (!*dest)
 	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			three_list_sort(&a);
-		else
-			push_swap(&a, &b);
+		*dest = node_we_push;
+		node_we_push -> next = NULL;
 	}
-	free_stack(&a);
-	return (0);
+	else
+	{
+		node_we_push -> next = (*dest);
+		node_we_push -> next -> prev = node_we_push;
+		*dest = node_we_push;
+	}
+}
+
+void	pb(t_stack_node **b, t_stack_node **a)
+{
+	push(b, a);
+	write(1, "pb\n", 3);
+}
+
+void	pa(t_stack_node **a, t_stack_node **b)
+{
+	push(a, b);
+	write(1, "pa\n", 3);
 }
