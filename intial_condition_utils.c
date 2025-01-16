@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   intial_condition_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#             */
-/*   Updated: 2025/01/14 15:11:54 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:31:44 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	intial(char **argv, int argc, t_stack_node **a)
+int	initial(char **argv, int argc, t_stack_node **a)
 {
 	char	**modified_argv;
 

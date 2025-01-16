@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#             */
-/*   Updated: 2025/01/14 15:10:41 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:58:24 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	set_target_a(t_stack_node *a, t_stack_node *b)
 			current_b = current_b->next;
 		}
 		if (best_match_lowest == LONG_MIN)
-			a->target_node = find_highest(b);
+			a->target_node = find_highest(b); //
 		else
 			a->target_node = target_node;
 		a = a->next;
@@ -71,7 +71,7 @@ void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	{
 		a->push_cost = a->index;
 		if (!(a->above_median))
-			a->push_cost = len_a -(a->index);
+			a->push_cost = len_a -(a->index); // 
 		if (a->target_node->above_median)
 			a->push_cost += a->target_node->index;
 		else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mkwizera <mkwizera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 12:25:12 by mkwizera          #+#    #+#             */
-/*   Updated: 2025/01/13 20:48:56 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:30:10 by mkwizera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <limits.h>
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
-
 
 typedef struct s_stack_node
 {
@@ -33,7 +32,7 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //for passing intial parameters for making stack..
-int						intial(char **argv, int argc, t_stack_node **a);
+int						initial(char **argv, int argc, t_stack_node **a);
 
 //if we have only 1 argument with number we use ft_split of libft 
 //convert in modified_strings_array and free it after using it to make stack
